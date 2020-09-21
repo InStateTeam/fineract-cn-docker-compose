@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -eux
 
 function init-variables {
     CASSANDRA_REPLICATION_TYPE="Simple"
@@ -89,8 +89,10 @@ function login {
     local username="$2"
     local password="$3"
 
-    ACCESS_TOKEN=$( curl -s -X POST -H "Content-Type: application/json" -H "User: guest" -H "X-Tenant-Identifier: $tenant" \
-       "${IDENTITY_URL}/token?grant_type=password&username=${username}&password=${password}" \
+    ACCESS_TOKEN=$( curl -G -s -X POST -H "Content-Type: application/json" -H "User: guest" -H "X-Tenant-Identifier: $tenant" \
+			 "${IDENTITY_URL}/token" --data-urlencode "grant_type=password" \
+			 --data-urlencode "username=${username}" \
+			 --data-urlencode "password=${password}" \
         | jq --raw-output '.accessToken' )
 }
 

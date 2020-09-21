@@ -47,11 +47,11 @@ services:
       restart_policy:
         condition: any
         delay: 10s
-        max_attempts: 3
-    networks:
-      external_tools_default:
-      fineract:
-        ipv4_address: ${PROVISIONER_IP}
+    network_mode: "host"
+    # networks:
+    #   external_tools_default:
+    #   fineract:
+    #     ipv4_address: ${PROVISIONER_IP}
 
   identity-ms:
     image: apache/fineract-cn-identity:latest
@@ -92,7 +92,6 @@ services:
       restart_policy:
         condition: any
         delay: 10s
-        max_attempts: 3
     networks:
       external_tools_default:
       fineract:

@@ -18,7 +18,6 @@ services:
       restart_policy:
         condition: any
         delay: 10s
-        max_attempts: 3
 
   eureka:
     image: anh3h/eureka-server:latest
@@ -34,7 +33,6 @@ services:
       restart_policy:
         condition: any
         delay: 10s
-        max_attempts: 3
 
   postgres:
     image: postgres:11
@@ -65,7 +63,6 @@ services:
       restart_policy:
         condition: any
         delay: 10s
-        max_attempts: 3
     volumes:
       - cassandra-volume:/var/lib/cassandra
 
