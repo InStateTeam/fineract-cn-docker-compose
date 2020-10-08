@@ -22,7 +22,7 @@ function init-variables {
     PORTFOLIO_URL="http://portfolio-ms:2026/portfolio/v1"
     DEPOSIT_URL="http://deposit-ms:2027/deposit/v1"
     TELLER_URL="http://teller-ms:2028/teller/v1"
-    REPORT_URL="http://reporting-ms:2029/report/v1"
+    REPORT_URL="http://reporting-ms:2029/reporting/v1"
     CHEQUES_URL="http://cheques-ms:2030/cheques/v1"
     PAYROLL_URL="http://payroll-ms:2031/payroll/v1"
     GROUP_URL="http://group-ms:2032/group/v1"
@@ -37,7 +37,7 @@ function init-variables {
     PORTFOLIO_MS_NAME="portfolio-v1"
     DEPOSIT_MS_NAME="deposit-v1"
     TELLER_MS_NAME="teller-v1"
-    REPORT_MS_NAME="report-v1"
+    REPORT_MS_NAME="reporting-v1"
     CHEQUES_MS_NAME="cheques-v1"
     PAYROLL_MS_NAME="payroll-v1"
     GROUP_MS_NAME="group-v1"
@@ -118,7 +118,7 @@ function delete-application {
     local service_name="$1"
 
     curl -X delete -H "Content-Type: application/json" -H "User: wepemnefret" -H "Authorization: ${TOKEN}" ${PROVISIONER_URL}/applications/${service_name}
-    echo "Deleted microservice: $name"
+    echo "Deleted microservice: $service_name"
 }
 
 function create-tenant {
